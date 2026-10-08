@@ -2,6 +2,8 @@ package com.mediatracker.api.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ public class Serie {
 	private String nombre;
 	
 	@OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
 	private List <Temporada> temporadas;
 	
 	private int anyo;

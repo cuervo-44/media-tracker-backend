@@ -1,5 +1,7 @@
 package com.mediatracker.api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +26,7 @@ public class Temporada {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "serie_id")
+	@JsonBackReference
 	private Serie serie;
 	
 	public Temporada() {
