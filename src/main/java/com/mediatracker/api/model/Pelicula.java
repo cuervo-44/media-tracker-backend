@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 
 @Entity
 @Table (name = "pelicula")
@@ -15,6 +17,9 @@ public class Pelicula {
 	
 	private String nombre;
 	private int duracion;
+	
+	@DecimalMin(value = "0.0", message = "La puntuación mínima es 1")
+    @DecimalMax(value = "10.0", message = "La puntuación máxima es 10")
 	private double puntuacion;
 	private int anyo;
 	

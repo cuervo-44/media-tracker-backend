@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 
 @Entity
 @Table (name = "temporada")
@@ -22,6 +24,9 @@ public class Temporada {
 	private int numeroTemporada;
 	private int numeroCapitulos;
 	private int anyo;
+	
+	@DecimalMin(value = "0.0", message = "La puntuación mínima es 1")
+    @DecimalMax(value = "10.0", message = "La puntuación máxima es 10")
 	private double puntuacion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
